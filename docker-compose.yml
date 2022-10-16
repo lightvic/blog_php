@@ -19,11 +19,6 @@ services:
       - data:/var/lib/mysql
     environment:
       MYSQL_DATABASE: db_blog
-      MYSQL_ROOT_PASSWORD: password
-    # adminer:
-    #   image: adminer
-    #   restart: always
-    #   ports:
-    #     - "1333:8080"
-volumes:
+      MYSQL_ROOT_PASSWORD: root
   data:
+    - ./app/database/dump.sql:/docker-entrypoint-initdb.d/dump.sql
